@@ -1,6 +1,6 @@
 # Implementando DevSecOps com Terraform
 
-Para a apresentaçao, utilizamos o [Localstack](https://www.localstack.cloud/) para imitar o comportamento da AWS, facilitando os testes.
+Para a apresentação, utilizamos o [Localstack](https://www.localstack.cloud/) para imitar o comportamento da AWS, facilitando os testes.
 
 #### Deploy com Terraform
 
@@ -22,6 +22,6 @@ terraform apply
 cd terraform-101/terraform/main
 tfsec
 
-### Configuraçoes terraform
+### Configurações terraform
 
 https://www.youtube.com/watch?v=0nU9yvqg2Rw
