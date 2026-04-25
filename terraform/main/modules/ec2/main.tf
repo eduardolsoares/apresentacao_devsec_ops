@@ -8,6 +8,15 @@ resource "aws_instance" "webserver" {
 
   associate_public_ip_address = true
 
+  root_block_device {
+    encrypted = true
+  }
+
+  metadata_options {
+    http_endpoint = "required"
+    http_tokens   = "required"
+  }
+
   tags = {
     Name = "WebServer"
   }

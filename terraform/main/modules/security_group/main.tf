@@ -3,36 +3,38 @@ resource "aws_security_group" "webserver_sg" {
   description = "Security group for webserver allowing HTTP traffic"
   vpc_id      = var.vpc_id
 
-  # Permitir tráfego de entrada na porta 80 (HTTP) de qualquer endereço
+  # tfsec:ignore:aws-ec2-no-public-ingress-sgr
   ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow HTTP traffic from anywhere"
   }
 
-  # Permitir tráfego de entrada na porta 443 (HTTPS) de qualquer endereço (opcional)
+  # tfsec:ignore:aws-ec2-no-public-ingress-sgr
   ingress {
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow HTTPS traffic from anywhere"
   }
 
-  # Permitir tráfego de entrada SSH (porta 22) de um endereço IP específico (opcional)
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["10.0.0.0/8"]
+    description = "Allow SSH from internal network only"
   }
 
-  # Permitir todo o tráfego de saída
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["10.0.0.0/8"]
+    description = "Allow all outbound traffic to internal network only"
   }
 
   tags = {
