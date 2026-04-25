@@ -1,7 +1,9 @@
 # modules/nat_gateway/main.tf
 resource "aws_eip" "nat_gateway_ip" {
   domain = "vpc"
-
+  lifecycle {
+    create_before_destroy = true
+  }
   tags = {
     Name = "NATGatewayEIP"
   }

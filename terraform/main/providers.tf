@@ -19,6 +19,7 @@ provider "aws" {
     route53        = "http://localhost:4566"
     lambda         = "http://localhost:4566"
     kinesis        = "http://localhost:4566"
+    kms            = "http://localhost:4566"
     iam            = "http://localhost:4566"
     firehose       = "http://localhost:4566"
     elasticache    = "http://localhost:4566"
@@ -29,5 +30,6 @@ provider "aws" {
     rds            = "http://localhost:4566"
     cloudformation = "http://localhost:4566"
     cloudwatch     = "http://localhost:4566"
+    logs           = "http://localhost:4566"
   }
 }
