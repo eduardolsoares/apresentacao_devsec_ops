@@ -28,6 +28,8 @@ provider "aws" {
     redshift       = "http://localhost:4566"
     rds            = "http://localhost:4566"
     cloudformation = "http://localhost:4566"
+    logs           = "http://localhost:4566"
     cloudwatch     = "http://localhost:4566"
+    kms            = "http://localhost:4566"
   }
 }

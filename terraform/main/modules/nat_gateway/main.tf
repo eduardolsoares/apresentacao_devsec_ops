@@ -10,7 +10,12 @@ resource "aws_eip" "nat_gateway_ip" {
 resource "aws_nat_gateway" "my_nat_gateway" {
   allocation_id = aws_eip.nat_gateway_ip.id
   subnet_id     = var.public_subnet_id
+
   tags = {
     Name = "NATGateway"
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 }

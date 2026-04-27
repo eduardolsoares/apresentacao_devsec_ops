@@ -4,16 +4,18 @@ resource "aws_instance" "webserver" {
 
   key_name        = var.key_name
   subnet_id       = var.public_subnet_id
-  security_groups = [var.security_group_id]
+  vpc_security_group_ids = [var.security_group_id]
 
   associate_public_ip_address = true
 
   root_block_device {
-    encrypted = true
+    volume_size = 8
+    volume_type = "gp2"
+    encrypted  = true
   }
 
   metadata_options {
-    http_endpoint = "required"
+    http_endpoint = "enabled"
     http_tokens   = "required"
   }
 
